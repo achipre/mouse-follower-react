@@ -18,8 +18,6 @@ function App () {
       window.removeEventListener('pointermove', handlerMove)
     }
   }, [enable])
-  console.log(enable)
-  console.log(position)
   return (
     <main>
       <FollowMouse enable={enable} position={position} isActive={isActive}/>
@@ -29,9 +27,9 @@ function App () {
 
 const FollowMouse = ({ enable, position, isActive }) => {
   return (
-    <><h1>Mouse Follower</h1>
-      <span style={{ width: 20, height: 20, backgroundColor: enable ? '#faf1e452' : '', borderRadius: 10, position: 'absolute', top: -10, left: -10, pointerEvents: 'none', transform: `translate(${position.x}px, ${position.y}px)`, transition: 'all .1s ease' }}></span>
-      <button onClick={isActive}>{enable ? 'Desactivar' : 'Activar'} segumiento</button>
+    <>
+      <span style={{ width: 40, height: 40, backgroundColor: enable ? '#faf1e452' : '', border: enable && '1px solid white', borderRadius: 20, position: 'absolute', top: -20, left: -20, pointerEvents: 'none', transform: `translate(${position.x}px, ${position.y}px)`, transition: 'all .1s ease' }}></span>
+      <button onClick={isActive} style={{ backgroundColor: enable && 'white', color: enable && 'black' }}>{enable ? 'Desactivar' : 'Activar'} segumiento</button>
     </>
   )
 }
